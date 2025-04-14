@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    body {
+        position: relative;
+        background-image: url('https://assets.bizclikmedia.net/900/a6284552da177a2086e74cff03b6af83:49958d38a4cafcfbd27dae6f0f8d909e/gettyimages-1318980755.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+    }
+
+    .overlay-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .card {
+        width: 100%;
+        padding: 20px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        /* Transparent white */
+        backdrop-filter: blur(15px);
+        /* Frosted glass effect */
+        -webkit-backdrop-filter: blur(15px);
+        /* Safari compatibility */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+        color: white !important;
+        /* All labels in white */
+    }
+
+    input.form-control {
+        background: rgba(255, 255, 255, 0.5);
+        color: black;
+    }
+
+    input.form-control::placeholder {
+        color: #555;
+    }
+
+    .btn-outline-white {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 1px solid white;
+    }
+
+    .btn-outline-white:hover {
+        background: white;
+        color: black;
+    }
+
+    /* Messages styling (for error/success) */
+    .alert {
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+    }
+
+    .alert-success {
+        background-color: rgba(40, 167, 69, 0.9);
+        color: #fff;
+    }
+
+    .alert-error {
+        background-color: rgba(220, 53, 69, 0.9);
+        color: #fff;
+    }
+</style>
+
+<div class="overlay-content">
+    <section class="text-center">
+        <div class="form-container">
+            <div class="card mx-4 mx-md-5 shadow-5-strong">
+                <div class="card-body py-5 px-md-5">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-8">
+                            <h2 class="fw-bold mb-5 text-white">SignUp</h2>
+
+                            <!-- Messages Block -->
+                            <div class="form-group mt-3">
+                                {% if messages %}
+                                <div class="messages">
+                                    {% for message in messages %}
+                                    <div class="alert  {{ message.tags }}">
+                                        {{ message }}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <form action="{% url 'signup' %}" method="post">
+                                {% csrf_token %}
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <div>
+                                            <label class="form-label">First name</label>
+                                            <input type="text" name="first_name" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div>
+                                            <label class="form-label">Last name</label>
+                                            <input type="text" name="last_name" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <div>
+                                            <label class="form-label">User name</label>
+                                            <input type="text" name="username" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div>
+                                            <label class="form-label">Email Address</label>
+                                            <input type="email" name="email" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <div>
+                                            <label class="form-label">Password</label>
+                                            <input type="password" name="password1" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div>
+                                            <label class="form-label">Confirm Password</label>
+                                            <input type="password" name="password2" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-outline-white btn-block mb-4">Submit</button>
+
+                                <div class="text-center">
+                                    <p class="text-white">Already a member?
+                                        <a href="{% url 'login' %}" class="text-white">Login</a>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        position: relative;
+        background-image: url('https://assets.bizclikmedia.net/900/a6284552da177a2086e74cff03b6af83:49958d38a4cafcfbd27dae6f0f8d909e/gettyimages-1318980755.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+    }
+
+    .overlay-content {
+        position: relative;
+        z-index: 1;
+    }
+        /* Custom style to make file input outlined */
+    .custom-file-container {
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        background-color: #fff;
+    }
+
+    .custom-file-input {
+        width: 100%;
+        border: none;
+        outline: none;
+        background-color: transparent;
+    }
+
+    .custom-file-input:focus {
+        outline: none;
+        box-shadow: none;
+    }
+</style>
+<div class="overlay-content">
+    <h2 class="text-center m-4 text-white">Please upload the image</h2>
+
+    <form class="form-signin" method="POST" action="{% url 'disease_prediction' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mx-auto" style="width: 540px;">
+            <div class="custom-file-container">
+                <input class="form-control custom-file-input" type="file" name="file" id="inputfile"
+                    onchange="preview_image(event)">
+            </div>
+            <br><br>
+            <img id="output-image" class="rounded mx-auto d-block" />
+            <div class="text-center">
+                <button type="submit" class="btn btn-outline-white p-2 m-3 btn-lg">Predict</button>
+            </div>
+        </div>
+    </form>
+</div>
+    <script type="text/javascript">
+        function preview_image(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('output-image')
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+
+{% endblock %}

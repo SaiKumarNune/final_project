@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- AOS CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+<style>
+    body {
+        position: relative;
+        background-image: url('https://assets.bizclikmedia.net/900/a6284552da177a2086e74cff03b6af83:49958d38a4cafcfbd27dae6f0f8d909e/gettyimages-1318980755.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+    }
+
+    .overlay-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .jumbotron h1,
+    .jumbotron p {
+        color: white;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .card {
+        border-radius: 20px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<div class="overlay-content">
+<div class="container">
+    <!-- Hero Section -->
+    <div class="jumbotron" data-aos="fade-down">
+        <div class=" text-center">
+            <h1 class="display-1">Plant Leaf Disease Detection</h1>
+            <p class="lead">Detect diseases in plant leaves with our advanced machine learning algorithms.</p>
+            <a href="{% url 'disease' %}" class="btn btn-primary btn-lg">Get started</a>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="mt-5">
+        <div class="row">
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="card h-100 d-flex flex-column">
+                    <img class="card-img-top"
+                        src="https://img.freepik.com/premium-vector/easy-use-circle-icon-snap-fingers-vector-illustration-ready-use-label-simple-emblem_1231005-540.jpg"
+                        alt="Easy to Use">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Easy to Use</h5>
+                        <p class="card-text flex-grow-1">Our app is designed to be simple and user-friendly.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card h-100 d-flex flex-column">
+                    <img class="card-img-top"
+                        src="https://img.freepik.com/free-vector/marketing-research-abstract-illustration-flat-style_335657-4536.jpg"
+                        alt="Accurate Results">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Accurate Results</h5>
+                        <p class="card-text flex-grow-1">Our algorithms are trained on a large dataset to ensure accuracy.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="card h-100 d-flex flex-column">
+                    <img class="card-img-top"
+                        src="https://img.freepik.com/free-vector/loading-speed-boost-fast-internet-browser-modern-online-technology-accelerated-download-time-smartphone-performance-optimization-improvement-concept-illustration_335657-2027.jpg"
+                        alt="Fast Processing">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Fast Processing</h5>
+                        <p class="card-text flex-grow-1">Get results in seconds with our fast processing system.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Sections with AOS Effects -->
+    <section class="my-5 text-white" data-aos="fade-right">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>Your Plants Need You</h2>
+                <p>Healthy plants are the foundation of successful farming and gardening. Here are some **essential tips**
+                    to help you maintain strong, disease-free plants and maximize their productivity:</p>
+                <ol>
+                    <li><b>Watering Smartly:</b> Plants need water to thrive, but overwatering can suffocate roots and
+                        promote fungal infections. Observe your plants and adjust watering according to weather conditions
+                        and soil type.</li>
+                    <li><b>Ensure Adequate Sunlight:</b> Different plants have different light requirements, but all plants
+                        need sunlight for photosynthesis. Place or plant them where they can get optimal sunlight to fuel
+                        their growth.</li>
+                    <li><b>Feed Your Plants:</b> Use appropriate fertilizers to provide essential nutrients like nitrogen,
+                        phosphorus, and potassium. Organic compost can enrich the soil naturally and improve plant health.
+                    </li>
+                    <li><b>Prune and Maintain:</b> Regularly check your plants for dead, damaged, or diseased leaves and
+                        branches. Pruning improves air circulation, reduces disease spread, and directs energy towards
+                        healthy growth.</li>
+                </ol>
+                <p>By following these basic care steps, you can give your plants a solid foundation to grow, thrive, and
+                    produce healthy yields.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://media.licdn.com/dms/image/D5612AQFaewQGqA_XuQ/article-cover_image-shrink_720_1280/0/1712629250041?e=2147483647&v=beta&t=Cd1_uU79_X1XiYrfoiqVoLzqqHK6X9-SyJ4SDbnjClc"
+                    alt="Your plants need you" class="img-fluid rounded">
+            </div>
+        </div>
+    </section>
+
+
+    <section class="my-5 text-white" data-aos="fade-left">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="https://media.licdn.com/dms/image/v2/D4E12AQFByWVKM83BbA/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1685121308271?e=2147483647&v=beta&t=QPWxKxjKDgMDwT7siTq4Flst_iseRYWMquSI0uSJh6I"
+                    alt="Act before it's too late" class="img-fluid rounded">
+            </div>
+            <div class="col-lg-6">
+                <h2>Act Before It's Too Late</h2>
+                <p>Plant diseases and stress often show **early warning signs**, and catching them early can save your crop.
+                    Be aware of these **common signs of plant distress** and take immediate action:</p>
+                <ol>
+                    <li><b>Yellowing Leaves:</b> This can indicate overwatering, nutrient deficiencies (especially
+                        nitrogen), or root diseases. Regularly inspect the lower leaves, as they are often affected first.
+                    </li>
+                    <li><b>Brown Spots:</b> Irregular brown spots on leaves could be caused by bacterial, fungal, or viral
+                        infections. They may also appear due to sunscald or pesticide burns.</li>
+                    <li><b>Wilting Leaves:</b> Wilting can be a sign of underwatering, root rot, or vascular diseases. Even
+                        if soil looks moist, root infections can prevent water uptake, causing wilting.</li>
+                    <li><b>Stunted Growth:</b> If your plants are growing slower than expected, this could indicate
+                        compacted soil, poor nutrition, or undetected root infections.</li>
+                    <li><b>Pest Presence:</b> Visible insects such as aphids, mites, caterpillars, or whiteflies often cause
+                        direct damage and also spread diseases. Inspect the underside of leaves regularly.</li>
+                </ol>
+                <p>**Quick diagnosis and action can prevent minor problems from turning into devastating outbreaks.** Our
+                    platform helps detect diseases early, providing timely recommendations to save your crops.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="my-5 text-white" data-aos="zoom-in">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>How It Works</h2>
+                <p>Our **Plant Leaf Disease Detection System** uses cutting-edge technology to help farmers and gardeners
+                    identify and manage crop diseases easily. Here’s how it works:</p>
+                <ol>
+                    <li><b>Upload an Image:</b> Simply take a clear photo of the affected plant leaf and upload it to our
+                        platform. Make sure the photo is well-lit and focuses on the affected area.</li>
+                    <li><b>AI Analysis:</b> Our advanced machine learning model, trained on thousands of diseased and
+                        healthy leaf images, analyzes the photo. It identifies visible symptoms such as leaf spots,
+                        discoloration, and wilting patterns.</li>
+                    <li><b>Instant Diagnosis:</b> Within seconds, you’ll receive a detailed diagnosis specifying the disease
+                        name (if detected) and its severity.</li>
+                    <li><b>Treatment Suggestions:</b> Along with the diagnosis, you’ll get **recommended treatments and best
+                        practices** to manage the disease. These suggestions are tailored based on the disease type, crop,
+                        and severity level.</li>
+                </ol>
+                <p>Our platform empowers farmers to act quickly, reduce crop losses, and improve overall productivity — all
+                    with just a smartphone and internet connection.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://media.licdn.com/dms/image/v2/D5622AQGGx9DcoKx_iQ/feedshare-shrink_800/feedshare-shrink_800/0/1733222796823?e=2147483647&v=beta&t=zaA2KBWQQdTkQAex-7phhf3oe-3P6RwfS-lxnMtKFB8"
+                    class="img-fluid rounded" alt="How it works" style="height: 570px;">
+            </div>
+        </div>
+    </section>
+
+<section class="my-5 text-white" data-aos="fade-left">
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="https://miro.medium.com/v2/resize:fit:1000/1*jcvJcAkafYjstApn3NVzEA.png"
+                alt="Smart Crop Recommendation" class="img-fluid rounded">
+        </div>
+        <div class="col-lg-6">
+            <h2>Smart Crop Suitability Check</h2>
+            <p>With our advanced image processing and machine learning models, you can now:</p>
+            <ol>
+                <li>Upload an image of your land.</li>
+                <li>Upload an image of the crop you wish to cultivate.</li>
+                <li>Our system will analyze both images and determine if the land is suitable for that crop.</li>
+                <li>If the land is **not suitable**, we will recommend alternative crops based on soil type, texture,
+                    and visible conditions.</li>
+                <li>If the land **is suitable**, we will provide important **precautions and farming tips** to ensure
+                    optimal crop health.</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="my-5 text-white" data-aos="zoom-in">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>How It Works</h2>
+            <p>This feature uses:</p>
+            <ul>
+                <li>Image analysis to detect **soil texture, moisture levels, and vegetation density** from the land
+                    image.</li>
+                <li>Machine learning to match these land features with **ideal crop requirements**.</li>
+                <li>Plant health assessment to check if the uploaded crop is in optimal condition for transplantation.
+                </li>
+                <li>If there's a mismatch, the system will display **recommended crops that thrive better in such
+                    conditions**.</li>
+                <li>If conditions are suitable, it will display **best practices, precautions, and tips for growing the
+                    selected crop**.</li>
+            </ul>
+            <p>This intelligent feature helps farmers make informed decisions and improve yield.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="https://sustainable.kmutt.ac.th/wp-content/uploads/2023/10/DALL%C2%B7E-2024-01-10-17.08.26-Create-a-horizontal-FULL-HD-cover-image-for-an-article-titled-Greening-the-Food-Chain_-From-Farm-to-Table.-The-image-should-illustrate-the-concept-o-1024x585.png"
+                class="img-fluid rounded" alt="Smart Crop Recommendation Process">
+        </div>
+    </div>
+</section>
+
+</div>
+</div>
+
+<!-- AOS JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000, // animation duration in ms
+        once: false, // whether animation should happen only once
+        mirror: true // whether elements should animate out while scrolling past them
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.19.1/js/mdb.min.js"></script>
+
+{% endblock %}
