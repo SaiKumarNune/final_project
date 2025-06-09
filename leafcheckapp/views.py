@@ -94,7 +94,7 @@ def predict_image(img, model=disease_model):
 def disease_prediction(request):
     if request.method == 'POST':
         if 'file' not in request.FILES:
-            return redirect(request.url)
+            return redirect(request.META.get('HTTP_REFERER', '/'))
 
         file = request.FILES['file']
         if not file:
